@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Belatrix.WebApi.Repository.Postgresql.Migrations
+namespace Belatrix.WebApi.Migrations
 {
     public partial class Initial : Migration
     {
@@ -22,7 +22,7 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_customer", x => x.id);
+                    table.PrimaryKey("customer_id_pkey", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,7 +41,7 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_supplier", x => x.id);
+                    table.PrimaryKey("supplier_id_key", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,7 +57,7 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_order", x => x.id);
+                    table.PrimaryKey("order_id_key", x => x.id);
                     table.ForeignKey(
                         name: "order_customer_id_fkey",
                         column: x => x.customer_id,
@@ -80,7 +80,7 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_product", x => x.id);
+                    table.PrimaryKey("product_id_key", x => x.id);
                     table.ForeignKey(
                         name: "product_supplier_id_fkey",
                         column: x => x.supplier_id,
@@ -102,7 +102,7 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_order_item", x => x.id);
+                    table.PrimaryKey("order_item_id_key", x => x.id);
                     table.ForeignKey(
                         name: "order_item_order_id_fkey",
                         column: x => x.order_id,

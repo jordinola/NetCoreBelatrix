@@ -3,17 +3,15 @@ using System;
 using Belatrix.WebApi.Repository.Postgresql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Belatrix.WebApi.Repository.Postgresql.Migrations
+namespace Belatrix.WebApi.Migrations
 {
     [DbContext(typeof(BelatrixDbContext))]
-    [Migration("20190603195033_Initial")]
-    partial class Initial
+    partial class BelatrixDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +51,8 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                         .HasColumnName("phone")
                         .HasMaxLength(20);
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("customer_id_pkey");
 
                     b.HasIndex("LastName", "FirstName")
                         .HasName("customer_name_idx");
@@ -84,7 +83,8 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                         .HasColumnName("total_amount")
                         .HasColumnType("decimal(12,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("order_id_key");
 
                     b.HasIndex("CustomerId")
                         .HasName("order_customer_id_idx");
@@ -115,7 +115,8 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                         .HasColumnName("unit_price")
                         .HasColumnType("decimal(12,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("order_item_id_key");
 
                     b.HasIndex("OrderId")
                         .HasName("order_item_order_id_idx");
@@ -153,7 +154,8 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                         .HasColumnName("unit_price")
                         .HasColumnType("decimal(12,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("product_id_key");
 
                     b.HasIndex("ProductName")
                         .HasName("product_product_name_idx");
@@ -206,7 +208,8 @@ namespace Belatrix.WebApi.Repository.Postgresql.Migrations
                         .HasColumnName("phone")
                         .HasMaxLength(30);
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("supplier_id_key");
 
                     b.HasIndex("CompanyName")
                         .HasName("supplier_company_name_idx");

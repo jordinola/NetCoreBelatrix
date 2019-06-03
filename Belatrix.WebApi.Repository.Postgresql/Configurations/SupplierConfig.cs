@@ -11,7 +11,9 @@ namespace Belatrix.WebApi.Repository.Postgresql.Configurations
     {
         public void Configure(EntityTypeBuilder<Supplier> builder)
         {
-            builder.ToTable("supplier");
+            builder.ToTable("supplier")
+                .HasKey(p => p.Id)
+                .HasName("supplier_id_key");
 
             builder.Property(p => p.Id)
                 .HasColumnName("id")

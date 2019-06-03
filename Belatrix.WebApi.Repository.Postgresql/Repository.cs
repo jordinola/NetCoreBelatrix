@@ -9,6 +9,7 @@ namespace Belatrix.WebApi.Repository.Postgresql
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly BelatrixDbContext _context;
+
         public Repository(BelatrixDbContext context)
         {
             _context = context;
