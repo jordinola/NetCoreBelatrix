@@ -4,6 +4,11 @@ namespace Belatrix.WebApi.Models
 {
     public class Supplier
     {
+        public Supplier()
+        {
+            Products = new HashSet<Product>();
+        }
+
         public int Id { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
