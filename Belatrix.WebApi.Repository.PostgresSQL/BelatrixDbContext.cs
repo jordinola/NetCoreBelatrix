@@ -1,9 +1,6 @@
 ﻿using Belatrix.WebApi.Models;
 using Belatrix.WebApi.Repository.PostgresSQL.Configurations;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Belatrix.WebApi.Repository
 {
