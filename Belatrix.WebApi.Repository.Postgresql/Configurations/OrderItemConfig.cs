@@ -43,12 +43,14 @@ namespace Belatrix.WebApi.Repository.Postgresql.Configurations
             builder.HasOne(p => p.Order)
                 .WithMany(p => p.OrderItems)
                 .HasForeignKey(p => p.OrderId)
+                .HasConstraintName("order_item_order_id_fkey")
                 .IsRequired()
                 .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(p => p.Product)
                 .WithMany(p => p.OrderItems)
                 .HasForeignKey(p => p.ProductId)
+                .HasConstraintName("order_item_product_id_fkey")
                 .IsRequired()
                 .OnDelete(DeleteBehavior.SetNull);
         }

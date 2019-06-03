@@ -12,6 +12,6 @@ namespace Belatrix.WebApi.Models
         public decimal? TotalAmount { get; set; }
 
         public Customer Customer { get; set; }
-        public List<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

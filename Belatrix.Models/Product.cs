@@ -12,6 +12,6 @@ namespace Belatrix.WebApi.Models
         public bool IsDiscontinued { get; set; }
 
         public Supplier Supplier { get; set; }
-        public List<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

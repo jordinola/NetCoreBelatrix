@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Belatrix.WebApi.Migrations
 {
     [DbContext(typeof(BelatrixDbContext))]
-    [Migration("20190602202026_InitialCreate")]
+    [Migration("20190603190042_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -13,6 +13,6 @@ namespace Belatrix.WebApi.Models
         public string Phone { get; set; }
         public string Fax { get; set; }
 
-        public List<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

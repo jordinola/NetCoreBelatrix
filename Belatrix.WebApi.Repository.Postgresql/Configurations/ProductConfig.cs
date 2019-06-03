@@ -48,6 +48,7 @@ namespace Belatrix.WebApi.Repository.Postgresql.Configurations
             builder.HasOne(p => p.Supplier)
                 .WithMany(p => p.Products)
                 .HasForeignKey(p => p.SupplierId)
+                .HasConstraintName("product_supplier_id_fkey")
                 .IsRequired()
                 .OnDelete(DeleteBehavior.SetNull);
         }
