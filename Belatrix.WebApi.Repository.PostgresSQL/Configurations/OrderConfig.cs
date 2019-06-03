@@ -42,6 +42,13 @@ namespace Belatrix.WebApi.Repository.PostgresSQL.Configurations
 
             builder.HasIndex(e => new { e.OrderDate })
                 .HasName("order_order_date_idx");
+
+            builder.HasOne(p => p.Customer)
+                .WithMany(p => p.Orders)
+                .HasForeignKey(p => p.CustomerId)
+                .IsRequired()
+                .HasConstraintName("order_customer_id_fkey");
+                
         }
     }
 }
