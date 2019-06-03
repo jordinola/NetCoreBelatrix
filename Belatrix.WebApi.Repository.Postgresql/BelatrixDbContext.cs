@@ -17,11 +17,11 @@ namespace Belatrix.WebApi.Repository.Postgresql
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration<Customer>(new CustomerConfig());
-            modelBuilder.ApplyConfiguration<Order>(new OrderConfig());
-            modelBuilder.ApplyConfiguration<OrderItem>(new OrderItemConfig());
-            modelBuilder.ApplyConfiguration<Product>(new ProductConfig());
-            modelBuilder.ApplyConfiguration<Supplier>(new SupplierConfig());
+            modelBuilder.ApplyConfiguration(new CustomerConfig());
+            modelBuilder.ApplyConfiguration(new OrderConfig());
+            modelBuilder.ApplyConfiguration(new OrderItemConfig());
+            modelBuilder.ApplyConfiguration(new ProductConfig());
+            modelBuilder.ApplyConfiguration(new SupplierConfig());
         }
 
         public DbSet<Customer> Customers { get; set; }
