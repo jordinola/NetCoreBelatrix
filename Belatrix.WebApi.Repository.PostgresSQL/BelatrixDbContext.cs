@@ -2,7 +2,7 @@
 using Belatrix.WebApi.Repository.PostgresSQL.Configurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace Belatrix.WebApi.Repository
+namespace Belatrix.WebApi.Repository.PostgresSQL
 {
     public class BelatrixDbContext : DbContext
     {
