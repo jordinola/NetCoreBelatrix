@@ -25,7 +25,7 @@ namespace Belatrix.WebApi.Repository.PostgresSQL
 
         public async Task<IEnumerable<T>> Read()
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task<bool> Update(T entity)
