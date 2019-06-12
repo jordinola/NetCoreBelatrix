@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi", "Belatrix
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi.Models", "Belatrix.Models\Belatrix.WebApi.Models.csproj", "{EA60782B-129D-4B15-82E7-7BD371AE0C50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.WebApi.Repository", "Belatrix.WebApi.Repository\Belatrix.WebApi.Repository.csproj", "{CAD7588F-2B79-43B4-8DCD-8BB5917FC326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi.Repository", "Belatrix.WebApi.Repository\Belatrix.WebApi.Repository.csproj", "{CAD7588F-2B79-43B4-8DCD-8BB5917FC326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.WebApi.Repository.PostgresSQL", "Belatrix.WebApi.Repository.PostgresSQL\Belatrix.WebApi.Repository.PostgresSQL.csproj", "{3D905E3C-AAC0-4FFA-A31E-FB8CD3E4F5CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi.Repository.PostgresSQL", "Belatrix.WebApi.Repository.PostgresSQL\Belatrix.WebApi.Repository.PostgresSQL.csproj", "{3D905E3C-AAC0-4FFA-A31E-FB8CD3E4F5CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.WebApi.Tests", "Belatrix.WebApi.Tests\Belatrix.WebApi.Tests.csproj", "{C74BB915-F324-46A1-AACE-F74471F9126D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3D905E3C-AAC0-4FFA-A31E-FB8CD3E4F5CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D905E3C-AAC0-4FFA-A31E-FB8CD3E4F5CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D905E3C-AAC0-4FFA-A31E-FB8CD3E4F5CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C74BB915-F324-46A1-AACE-F74471F9126D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C74BB915-F324-46A1-AACE-F74471F9126D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C74BB915-F324-46A1-AACE-F74471F9126D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C74BB915-F324-46A1-AACE-F74471F9126D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,5 @@
 ﻿using Belatrix.WebApi.Models;
 using Belatrix.WebApi.Repository;
-using Belatrix.WebApi.Repository.PostgresSQL;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
