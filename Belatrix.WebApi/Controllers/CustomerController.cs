@@ -19,9 +19,18 @@ namespace Belatrix.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCustomers() 
+        public async Task<ActionResult<Customer>> GetCustomers() 
         {
             return Ok(await _repository.Read());
         }
+
+        [HttpPost]
+        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        {
+            await _repository.Create(customer);
+            return Ok(customer.Id);
+        }
+
+        //TODO: Completar todos los controllers con sus tests
     }
 }
