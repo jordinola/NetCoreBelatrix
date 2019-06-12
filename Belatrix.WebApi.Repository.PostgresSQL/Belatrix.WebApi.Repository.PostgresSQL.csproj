@@ -1,26 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\**" />
-    <Content Remove="Models\**" />
-    <EmbeddedResource Remove="Models\**" />
-    <None Remove="Models\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview5-19227-01" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0-preview5.19227.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.0.0-preview5" />
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\Belatrix.WebApi.Repository.PostgresSQL\Belatrix.WebApi.Repository.PostgresSQL.csproj" />
+    <ProjectReference Include="..\Belatrix.Models\Belatrix.WebApi.Models.csproj" />
+    <ProjectReference Include="..\Belatrix.WebApi.Repository\Belatrix.WebApi.Repository.csproj" />
   </ItemGroup>
 
 </Project>
