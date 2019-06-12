@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Belatrix.WebApi.Models;
 using Belatrix.WebApi.Repository;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Belatrix.WebApi.Controllers
