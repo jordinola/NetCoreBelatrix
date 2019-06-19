@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Belatrix.WebApi.Repository.PostgresSQL\Belatrix.WebApi.Repository.PostgresSQL.csproj" />
     <ProjectReference Include="..\Belatrix.WebApi\Belatrix.WebApi.csproj" />
   </ItemGroup>
 

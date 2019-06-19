@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Belatrix.WebApi.Filters;
 using Belatrix.WebApi.Models;
 using Belatrix.WebApi.Repository;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Belatrix.WebApi.Controllers
 {
@@ -17,9 +16,10 @@ namespace Belatrix.WebApi.Controllers
         {
             _repository = repository;
         }
-
+              
         [HttpGet]
-        public async Task<ActionResult<Customer>> GetCustomers() 
+        [CustomerResultFilter]
+        public async Task<ActionResult<IEnumerable<ViewModels.Customer>>> GetCustomers()
         {
             return Ok(await _repository.Read());
         }
@@ -31,6 +31,16 @@ namespace Belatrix.WebApi.Controllers
             return Ok(customer.Id);
         }
 
-        //TODO: Completar todos los controllers con sus tests
+        [HttpPut]
+        public async Task<ActionResult<bool>> PutCustomer(Customer customer)
+        {
+            return Ok(await _repository.Update(customer));
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<bool>> DeleteCustomer(int customerId)
+        {
+            return Ok(await _repository.Delete(new Customer { Id = customerId }));
+        }
     }
 }

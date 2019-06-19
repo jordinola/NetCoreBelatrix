@@ -1,5 +1,8 @@
-﻿using Belatrix.WebApi.Repository.PostgresSQL;
+﻿using Belatrix.WebApi.Repository.Postgresql;
 using GenFu;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Belatrix.WebApi.Tests.Builder.Data
 {
@@ -19,8 +22,8 @@ namespace Belatrix.WebApi.Tests.Builder.Data
                 customerList[i - 1].Id = i;
             }
 
-            _context.AddRange(customerList);
-            _context.SaveChanges();
+            context.Customer.AddRange(customerList);
+            context.SaveChanges();
         }
     }
 }

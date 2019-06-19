@@ -6,7 +6,7 @@ namespace Belatrix.WebApi.Models
     {
         public Product()
         {
-            OrderItems = new HashSet<OrderItem>();
+            OrderItem = new HashSet<OrderItem>();
         }
 
         public int Id { get; set; }
@@ -17,6 +17,6 @@ namespace Belatrix.WebApi.Models
         public bool IsDiscontinued { get; set; }
 
         public Supplier Supplier { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItem> OrderItem { get; set; }
     }
 }

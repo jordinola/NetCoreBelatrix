@@ -1,14 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using Belatrix.WebApi;
 using Belatrix.WebApi.Models;
+using Belatrix.WebApi.Profiles;
 using Belatrix.WebApi.Repository;
 using Belatrix.WebApi.Repository.Postgresql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 [assembly: ApiConventionType(typeof(BelatrixApiConventions))]
@@ -26,12 +34,21 @@ namespace Belatrix.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<CustomerProfile>();
+            });
+
+            services.AddAutoMapper(typeof(CustomerProfile).Assembly);
+
             services.AddControllers()
                 .AddNewtonsoftJson();
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<BelatrixDbContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("postgresql"), x => x.MigrationsAssembly("Belatrix.WebApi")))
-                .BuildServiceProvider();
+               .AddDbContextPool<BelatrixDbContext>(
+                opt => opt.UseNpgsql(Configuration.GetConnectionString("postgresql"),
+                b => b.MigrationsAssembly("Belatrix.WebApi")))
+               .BuildServiceProvider();
 
             services.AddTransient<IRepository<Customer>, Repository<Customer>>();
 
@@ -42,6 +59,7 @@ namespace Belatrix.WebApi
                     Title = "Belatrix API",
                     Version = "v1"
                 });
+                c.CustomSchemaIds(x => x.FullName);
             });
         }
 
@@ -73,7 +91,8 @@ namespace Belatrix.WebApi
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Belatrix API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", 
+                    "Belatrix Api v1");
             });
         }
     }
